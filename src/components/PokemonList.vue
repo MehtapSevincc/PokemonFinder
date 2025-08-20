@@ -5,13 +5,15 @@
     <div v-else >
       
       <div class="grid grid-cols-2 gap-4">
-        <div
-          v-for="pokemon in paginatedPokemons"
-          :key="pokemon.name"
-          class="border p-4 rounded shadow"
-        >
-          {{ pokemon.name }}
-        </div>
+    <router-link
+  v-for="pokemon in paginatedPokemons"
+  :key="pokemon.name"
+  :to="`/pokemon/${pokemon.name}`"
+  class="border p-4 rounded shadow block text-center capitalize hover:bg-slay-800 transition"
+>
+  {{ pokemon.name }}
+</router-link>
+
       </div>
 
       
@@ -76,6 +78,9 @@ export default {
       if (this.currentPage > 1) {
         this.currentPage--
       }
+    },
+    goToDetail(name) {
+        this.$router.push({name:'Detail',params:{name}})
     }
   },
   watch: {
