@@ -9,7 +9,7 @@
   v-for="pokemon in paginatedPokemons"
   :key="pokemon.name"
   :to="`/pokemon/${pokemon.name}`"
-  class="border p-4 rounded shadow block text-center capitalize hover:bg-slay-800 transition"
+  class="border p-4 rounded shadow block text-center capitalize hover:bg-slate-800 transition"
 >
   {{ pokemon.name }}
 </router-link>
