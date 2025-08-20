@@ -17,7 +17,7 @@
       </div>
 
       
-      <div class="mt-4 flex gap-2">
+      <div class="mt-4 flex gap-2 items-center">
         <button
           @click="prevPage"
           :disabled="currentPage === 1"
@@ -25,6 +25,19 @@
         >
           Prev
         </button>
+       
+      <button 
+      v-for ="page in pageNumbers"
+      :key="page"
+      @click="goToPage(page)"
+      :class="['px-4 py-2 rounded',
+   currentPage===page ? 'bg-blue-950 text-white' :'bg-gray-200'
+
+      ]"
+      >
+      {{ page }}
+    </button>
+
 
         <button
           @click="nextPage"
@@ -66,6 +79,15 @@ export default {
     },
     totalPages() {
       return Math.ceil(this.filteredPokemons.length / this.itemsPerPage)
+    },
+    pageNumbers(){
+        const pages =[]
+        const start =Math.max(1,this.currentPage-1)
+        const end =Math.min(this.totalPages,start+2)
+        for (let i=start; i<=end; i++) {
+            pages.push(i)
+        }
+        return pages
     }
   },
   methods: {
@@ -81,6 +103,11 @@ export default {
     },
     goToDetail(name) {
         this.$router.push({name:'Detail',params:{name}})
+    },
+    goToPage(page){
+        if(page >=1 && page <= this.totalPages) {
+            this.currentPage =page 
+        }
     }
   },
   watch: {

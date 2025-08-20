@@ -4,7 +4,7 @@
     :value="modelValue"
     @input="$emit('update:modelValue', $event.target.value)"
     placeholder="Clefable,Pikachu,etc."
-    class=" w-50 border px-4 py-2 rounded "
+    class=" w-50 border px-4 py-2 rounded  text-slate-950"
   />
 </template>
 
@@ -12,7 +12,7 @@
 export default {
   name: 'SearchBar',
   props: {
-    modelValue: String, // v-model için gerekli
+    modelValue: String, 
   },
 }
 </script>
