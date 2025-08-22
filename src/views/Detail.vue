@@ -9,8 +9,8 @@
         alt="Pokemon"
         class="mx-auto mb-6 w-[240px] h-[240px]"
       />
+      <p class="mb-4">Weight: {{ details.weight }}</p>
 
-      <h3 class="text-xl font-semibold mb-4">İstatistikler</h3>
       <ul class="text-lg space-y-2">
         <li v-for="stat in details.stats" :key="stat.stat.name">
           <span class="font-medium capitalize">{{ stat.stat.name }}:</span>
