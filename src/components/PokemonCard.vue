@@ -6,9 +6,9 @@
 
 <script>
 export default {
-  name: 'PokemonCard',
+  name: "PokemonCard",
   props: {
-    name: String
-  }
-}
+    name: String,
+  },
+};
 </script>
