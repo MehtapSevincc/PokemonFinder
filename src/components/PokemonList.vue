@@ -1,6 +1,14 @@
 <template>
   <div>
     <div v-if="loading">Yükleniyor...</div>
+    
+   <div v-else>
+      
+      <div v-if="filteredPokemons.length === 0" class="text-center text-slate-50 mt-6">
+        Pokemon not found.
+      </div>
+
+
 
     <div v-else>
       <div class="grid grid-cols-2 gap-4">
@@ -46,6 +54,7 @@
         </button>
       </div>
     </div>
+  </div>
   </div>
 </template>
 
